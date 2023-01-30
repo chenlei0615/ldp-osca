@@ -25,16 +25,17 @@
         <okhttp.version>4.9.0</okhttp.version>
         <spring.boot.version>2.6.8</spring.boot.version>
     </properties>
+
 <!--
     <distributionManagement>
         <repository>
-            <id>LMSP</id> &lt;!&ndash; nexus认证id &ndash;&gt;
-            <url>http://nexus-dev.longi.com:8081/repository/HTFUAT-Group/</url>
+            <id>LDP</id>
+            <url>http://nexus-dev.longi.com:8081/repository/LDPDEV-GROUP/</url>
         </repository>
         <snapshotRepository>
-            <id>LMSP-Snapshot</id> &lt;!&ndash; nexus认证id &ndash;&gt;
-            <url>http://nexus-dev.longi.com:8081/repository/HTFUAT-Snapshot/</url>
+            <id>LDP-Snapshot</id>
+            <url>http://nexus-dev.longi.com:8081/repository/LDPDEV-SNAPSHOT/</url>
         </snapshotRepository>
-    </distributionManagement>-->
-
+    </distributionManagement>
+-->
 </project>
