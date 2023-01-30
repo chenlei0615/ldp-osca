@@ -1,0 +1,39 @@
+server:
+  port: 9150
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: "5s" #优雅停机等待时间
+  application:
+    name: lmsp-osca
+  messages:
+    encoding: UTF-8
+  profiles:
+    active: test
+  cloud:
+    nacos:
+      discovery:
+        username: nacos
+        password: lmsp#2022@nacos
+        # url和namespace根据实际情况修改
+        server-addr: 10.0.11.73:18888
+        namespace: d73ea4f1-3f70-40ad-8c1f-0f4c280f2e98
+      config:
+        username: nacos
+        password: lmsp#2022@nacos
+        # 配置中心地址
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        # 命名空间
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        # 配置文件格式
+        file-extension: yml
+        # 配置当前服务对应的配置文件,如果没有可以不配置
+        #name: lmsp-datasource-${spring.profiles.active}
+        # 分组名称
+        group: DEFAULT_GROUP
+        refresh-enabled: true
+        # 共享配置
+        extension-configs:
+          - data-id: lmsp-common-config-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            group: ${spring.cloud.nacos.config.group}
+            refresh: true
