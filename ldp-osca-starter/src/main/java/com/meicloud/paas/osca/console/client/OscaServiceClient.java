@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2022/10/25 11:24
  **/
 @FeignClient(
-        value = "${feign.client.config.default.schema:http}" + "://lmsp-osca")
+        value = "${feign.client.config.default.schema:http}" + "://ldp-osca")
 public interface OscaServiceClient {
 
     /**
