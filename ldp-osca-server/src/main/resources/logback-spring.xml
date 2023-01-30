@@ -13,7 +13,7 @@
               value="%date [%thread] %-5level [%logger{50}] %file:%line - %msg%n"/>
     <property name="LOG_HOME" value="logs/"/>
 
-    <springProperty name="APP_NAME" scope="context" source="spring.application.name" defaultValue="lmsp-osca"/>
+    <springProperty name="APP_NAME" scope="context" source="spring.application.name" defaultValue="ldp-osca"/>
 
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类

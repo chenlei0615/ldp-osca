@@ -5,7 +5,7 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: "5s" #优雅停机等待时间
   application:
-    name: lmsp-osca
+    name: ldp-osca
   messages:
     encoding: UTF-8
   profiles:
@@ -34,6 +34,6 @@ spring:
         refresh-enabled: true
         # 共享配置
         extension-configs:
-          - data-id: lmsp-common-config-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          - data-id: ldp-common-config-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
             group: ${spring.cloud.nacos.config.group}
             refresh: true

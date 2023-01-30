@@ -1,6 +1,6 @@
 FROM cr.registry.res.cloud.longi.com/ldp-dev/centos7-jdk:v1.1
 
-ENV BASE_PATH=/usr/local/lmsp/lmsp-osca
+ENV BASE_PATH=/usr/local/ldp/ldp-osca
 ENV SOFT_PATH=/$BASE_PATH/soft
 RUN mkdir -p $SOFT_PATH/font && mkdir -p $SOFT_PATH/SourceHanSerifCN 
 
@@ -28,7 +28,7 @@ RUN rm -rf $SOFT_PATH
 #---拷贝服务----
 #RUN mkdir -p /usr/local/lmsp/tomcat-ssl/
 #ADD 7283249__longi.com.pfx /usr/local/lmsp/tomcat-ssl/
-ADD lmsp-osca.jar /usr/local/lmsp/lmsp-osca/
-WORKDIR /usr/local/lmsp/lmsp-osca
+ADD ldp-osca.jar /usr/local/ldp/ldp-osca/
+WORKDIR /usr/local/ldp/ldp-osca
 
-ENTRYPOINT ["java","-jar","-Djasypt.encryptor.password=LongiLmsp@2022","lmsp-osca.jar"]
+ENTRYPOINT ["java","-jar","-Djasypt.encryptor.password=LongiLmsp@2022","ldp-osca.jar"]
