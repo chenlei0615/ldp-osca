@@ -31,4 +31,6 @@ RUN rm -rf $SOFT_PATH
 ADD ldp-osca.jar /usr/local/ldp/ldp-osca/
 WORKDIR /usr/local/ldp/ldp-osca
 
-ENTRYPOINT ["java","-jar","-Djasypt.encryptor.password=LongiLmsp@2022","ldp-osca.jar"]
+ARG env=dev
+ENV run_env=${env}
+ENTRYPOINT ["java","-jar","-Dspring.profiles.active=${run_env}","-Djasypt.encryptor.password=LongiLmsp@2022","-DrunInDocker=true","ldp-osca.jar"]
