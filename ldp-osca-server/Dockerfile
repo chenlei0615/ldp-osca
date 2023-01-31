@@ -3,13 +3,12 @@ FROM cr.registry.res.cloud.longi.com/ldp-dev/centos7-jdk:v1.1
 ENV BASE_PATH=/usr/local/ldp/ldp-osca
 ENV SOFT_PATH=/$BASE_PATH/soft
 RUN mkdir -p $SOFT_PATH/font && mkdir -p $SOFT_PATH/SourceHanSerifCN
-ENV OSCA_SOFT_PATH=/data/jenkins/ldp_setting/depend
 
 #--- 拷贝插件----
-COPY $OSCA_SOFT_PATH/LibreOffice_7.3.1_Linux_x86-64_rpm_langpack_zh-CN.tar.gz $SOFT_PATH/
-COPY $OSCA_SOFT_PATH/LibreOffice_7.3.1_Linux_x86-64_rpm.tar.gz $SOFT_PATH/
-COPY $OSCA_SOFT_PATH/SourceHanSerifCN.zip $SOFT_PATH/
-COPY $OSCA_SOFT_PATH/font.zip $SOFT_PATH/
+COPY LibreOffice_7.3.1_Linux_x86-64_rpm_langpack_zh-CN.tar.gz $SOFT_PATH/
+COPY LibreOffice_7.3.1_Linux_x86-64_rpm.tar.gz $SOFT_PATH/
+COPY SourceHanSerifCN.zip $SOFT_PATH/
+COPY font.zip $SOFT_PATH/
 
 #--- 安装依赖rpm包----
 RUN yum -y install unzip cups-libs cairo libSM
