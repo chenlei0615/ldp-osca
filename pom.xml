@@ -20,22 +20,20 @@
     </modules>
 
     <properties>
-        <longi.version>1.0.0</longi.version>
         <osca.version>1.0.0-SNAPSHOT</osca.version>
         <okhttp.version>4.9.0</okhttp.version>
         <spring.boot.version>2.6.8</spring.boot.version>
     </properties>
 
-<!--
     <distributionManagement>
         <repository>
-            <id>LDP</id>
-            <url>http://nexus-dev.longi.com:8081/repository/LDPDEV-GROUP/</url>
+            <id>LDP-Release</id> <!-- nexus认证id -->
+            <url>http://nexus-dev.longi.com:8081/repository/LDPDEV-RELEASE/</url>
         </repository>
         <snapshotRepository>
-            <id>LDP-Snapshot</id>
+            <id>LDP-Snapshot</id> <!-- nexus认证id -->
             <url>http://nexus-dev.longi.com:8081/repository/LDPDEV-SNAPSHOT/</url>
         </snapshotRepository>
     </distributionManagement>
--->
+
 </project>
