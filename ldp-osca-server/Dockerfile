@@ -22,8 +22,9 @@ RUN cd $SOFT_PATH/ && tar -xvf LibreOffice_7.3.1_Linux_x86-64_rpm_langpack_zh-CN
 RUN cd $FONT_PATH/ && unzip -d $FONT_PATH/SourceHanSerifCN SourceHanSerifCN.zip && fc-cache -fv
 RUN cd $FONT_PATH/ && unzip -d $FONT_PATH/font font.zip && yum -y install fontconfig ttmkfdir mkfontscale && mkfontscale && mkfontdir&& fc-cache
 
-#RUN kill -9 `ps -ef|grep libreoffice | grep -v "grep" | grep libreoffice | awk '{print $2}'` 2 >/dev/null
-RUN /opt/libreoffice7.3/program/soffice --headless --accept="socket,host=127.0.0.1,port=8100;urp;" --nofirststartwizard &
+#--- 重启libreoffice ----
+COPY start_ldposca_soft.sh $SOFT_PATH/
+RUN chmod u+x $SOFT_PATH/start_ldposca_soft.sh && $SOFT_PATH/start_ldposca_soft.sh
 RUN rm -rf $SOFT_PATH
 
 #---拷贝服务----
