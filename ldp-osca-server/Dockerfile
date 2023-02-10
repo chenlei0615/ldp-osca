@@ -2,7 +2,8 @@ FROM cr.registry.res.cloud.longi.com/ldp-dev/centos7-jdk:v1.1
 
 ENV BASE_PATH=/usr/local/ldp/ldp-osca
 ENV SOFT_PATH=/$BASE_PATH/soft
-ENV FONT_PATH=/usr/share/fonts/
+#--- 指定系统字体目录 ---
+ENV FONT_PATH=/usr/share/fonts
 RUN mkdir -p $FONT_PATH/font && mkdir -p $FONT_PATH/SourceHanSerifCN
 
 #--- 拷贝插件----
@@ -20,7 +21,7 @@ RUN cd $SOFT_PATH/ && tar -xvf LibreOffice_7.3.1_Linux_x86-64_rpm_langpack_zh-CN
 
 # --- 安装系统字体-----
 RUN cd $FONT_PATH/ && unzip -d $FONT_PATH/SourceHanSerifCN SourceHanSerifCN.zip && fc-cache -fv
-RUN cd $FONT_PATH/ && unzip -d $FONT_PATH/font font.zip && yum -y install fontconfig ttmkfdir mkfontscale && mkfontscale && mkfontdir&& fc-cache
+RUN cd $FONT_PATH/ && unzip -d $FONT_PATH/font font.zip && yum -y install fontconfig ttmkfdir mkfontscale && mkfontscale && mkfontdir && fc-cache
 
 #--- 重启libreoffice ----
 COPY start_ldposca_soft.sh $SOFT_PATH/
