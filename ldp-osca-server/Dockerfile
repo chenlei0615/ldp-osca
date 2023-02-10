@@ -22,8 +22,8 @@ RUN cd $SOFT_PATH/ && unzip -d $SOFT_PATH/SourceHanSerifCN SourceHanSerifCN.zip 
 RUN cd $SOFT_PATH/ && unzip -d $SOFT_PATH/font font.zip && yum -y install fontconfig ttmkfdir mkfontscale && mkfontscale && mkfontdir && fc-cache
 
 #--- 重启libreoffice ----
-COPY start_ldposca_soft.sh $SOFT_PATH/ && chmod u+x $SOFT_PATH/start_ldposca_soft.sh
-RUN $SOFT_PATH/start_ldposca_soft.sh
+COPY start_ldposca_soft.sh $SOFT_PATH/
+RUN chmod u+x $SOFT_PATH/start_ldposca_soft.sh && $SOFT_PATH/start_ldposca_soft.sh
 RUN rm -rf $SOFT_PATH
 
 #---拷贝服务----
