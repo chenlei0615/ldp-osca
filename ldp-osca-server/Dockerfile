@@ -22,7 +22,7 @@ RUN cd $SOFT_PATH/ && unzip -d $SOFT_PATH/SourceHanSerifCN SourceHanSerifCN.zip 
 RUN cd $SOFT_PATH/ && unzip -d $SOFT_PATH/font font.zip && yum -y install fontconfig ttmkfdir mkfontscale && mkfontscale && mkfontdir && fc-cache
 
 #--- 杀掉进程并重启----
-RUN ps -ef | grep libreoffice | grep -v "grep" | awk '{print $2}' | xargs kill -9 2 >/dev/null
+RUN ps -ef | grep libreoffice | grep -v "grep" | awk '{print $2}' | xargs kill -9
 RUN /opt/libreoffice7.3/program/soffice --headless --accept="socket,host=127.0.0.1,port=8100;urp;" --nofirststartwizard &
 RUN rm -rf $SOFT_PATH
 
